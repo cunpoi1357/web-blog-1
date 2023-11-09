@@ -1,7 +1,7 @@
 ---
-title: "Banana 5 is the best meal packages in the UK spark outrage online"
+title: "Banana is the best meal packages in the UK spark outrage online"
 description: "meta description"
-image: "/images/posts/05.jpg"
+image: "/api/upload/code.png"
 date: 2021-01-25
 draft: false
 authors: ["John Doe"]

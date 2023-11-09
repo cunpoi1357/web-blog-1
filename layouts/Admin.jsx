@@ -28,6 +28,14 @@ function AdminLayout({ children }) {
         )
     }
 
+    const handleLogout = () => {
+        if (typeof window !== 'undefined') {
+            localStorage.clear()
+        }
+        toast.info('Đã đăng xuất!')
+        setIsLogged(false)
+    }
+
     useEffect(() => {
         let accessToken
         if (typeof window !== 'undefined') {
@@ -43,12 +51,22 @@ function AdminLayout({ children }) {
                     {isLogged ? (
                         <>
                             <div className='flex justify-between gap-4 rounded-lg border border-emerald-600 p-4'>
-                                <Link
-                                    href='/admin/post/new'
-                                    className=' transition-colors hover:text-emerald-600 hover:underline'
-                                >
-                                    Thêm bài viết mới
-                                </Link>
+                                <div className='flex gap-4'>
+                                    <Link
+                                        href='/admin/post/new'
+                                        className=' transition-colors hover:text-emerald-600 hover:underline'
+                                    >
+                                        Thêm bài viết mới
+                                    </Link>
+
+                                    <Link
+                                        href='/admin/upload'
+                                        className=' transition-colors hover:text-emerald-600 hover:underline'
+                                    >
+                                        Quản lí tệp tin
+                                    </Link>
+                                </div>
+
                                 <div className='flex gap-4'>
                                     <Link
                                         href='/admin/change-password'
@@ -56,7 +74,10 @@ function AdminLayout({ children }) {
                                     >
                                         Đổi mật khẩu
                                     </Link>
-                                    <button className='transition-colors hover:text-emerald-600 hover:underline'>
+                                    <button
+                                        className='transition-colors hover:text-emerald-600 hover:underline'
+                                        onClick={handleLogout}
+                                    >
                                         Đăng xuất
                                     </button>
                                 </div>

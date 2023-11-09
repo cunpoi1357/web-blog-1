@@ -62,5 +62,6 @@ export const getStaticProps = async ({ params }) => {
       authors: authors,
       currentPage: currentPage,
     },
+    revalidate: 60,
   };
 };

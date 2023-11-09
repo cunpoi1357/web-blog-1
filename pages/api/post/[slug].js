@@ -34,7 +34,6 @@ export default async function handler(req, res) {
                 const filePath = path.join(`content/${blog_folder}/${slug}.md`)
                 if (fs.existsSync(filePath)) fs.unlinkSync(filePath)
                 updateJson()
-                await fetch('api/revalidate', { method: 'POST', body: { path: `/blog/${slug}` } })
                 return res.status(200).json({ message: 'Xóa bài viết thành công', revalidated: true });
             }
         case 'PUT':
